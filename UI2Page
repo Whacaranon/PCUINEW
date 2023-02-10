@@ -5049,7 +5049,7 @@ Race = Main:AddLabelLeft("")
  spawn(function()
         pcall(function()
             while wait() do
-                Race:Set("Gear Chack : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("UpgradeRace","Progress"))
+                Race:Set("Gear Chack : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("UpgradeRace","Check"))
             end
         end)
     end)
