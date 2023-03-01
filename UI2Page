@@ -190,7 +190,7 @@ local osfunc = {}
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 13, 0, 1)
 	Logo.Size = UDim2.new(0, 30, 0, 25)
-	Logo.Image = "rbxassetid://6675147486"
+	Logo.Image = "rbxassetid://"..tostring(logo)
 
 	local Name = Instance.new("TextLabel")
 	Name.Name = "Name"
@@ -198,14 +198,12 @@ local osfunc = {}
 	Name.BackgroundColor3 = Color3.fromRGB(0,255,255)
 	Name.BackgroundTransparency = 1.000
 	Name.Position = UDim2.new(0.1, 0, 0, 0)
-	Name.Size = UDim2.new(0, 10, 0, 27)
+	Name.Size = UDim2.new(0, 80, 0, 27)
 	Name.Font = Enum.Font.Code
 	Name.RichText = true;
 	Name.Text = name
 	Name.TextColor3 = Color3.fromRGB(225, 225, 225)
 	Name.TextSize = 15.000
-
-
 
 local LocalizationService = game:GetService("LocalizationService")
  local Players = game:GetService("Players")
@@ -458,45 +456,6 @@ NotificationHold:Destroy()
  end)
  end
 
-	local Hub = Instance.new("TextLabel")
-	Hub.Name = "Hub"
-	Hub.Parent = Top
-	Hub.BackgroundColor3 = Color3.fromRGB(51,255,255)
-	Hub.BackgroundTransparency = 1.000
-	Hub.Position = UDim2.new(0, 50, 0, 0)
-	Hub.Size = UDim2.new(0, 50, 0, 27)
-	Hub.Font = Enum.Font.Code
-	Hub.Text = "Anti HUB"
-	Hub.TextColor3 = Color3.fromRGB(50, 255, 255)
-	Hub.TextSize = 15.000
-	Hub.TextXAlignment = Enum.TextXAlignment.Left
-	
-		local Hub4 = Instance.new("TextLabel")
-	Hub4.Name = "Hub"
-	Hub4.Parent = Top
-	Hub4.BackgroundColor3 = Color3.fromRGB(51,255,255)
-	Hub4.BackgroundTransparency = 1.000
-	Hub4.Position = UDim2.new(0, 50, 0, 0)
-	Hub4.Size = UDim2.new(0, 50, 0, 27)
-	Hub4.Font = Enum.Font.Code
-	Hub4.Text = "Anti "
-	Hub4.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Hub4.TextSize = 15.000
-	Hub4.TextXAlignment = Enum.TextXAlignment.Left
-	
-local Hub1 = Instance.new("TextLabel")
-	Hub1.Name = "Hub"
-	Hub1.Parent = Top
-	Hub1.BackgroundColor3 = Color3.fromRGB(51,255,255)
-	Hub1.BackgroundTransparency = 1.000
-	Hub1.Position = UDim2.new(0, 130, 0, 30)
-	Hub1.Size = UDim2.new(0, 50, 0, 35)
-	Hub1.Font = Enum.Font.Code
-	Hub1.Text = ""
-	Hub1.TextColor3 = Color3.fromRGB(51,255,255)
-	Hub1.TextSize = 15.000
-
-
 
 local Tab = Instance.new("ImageLabel")
 local WindowStrokelol = Instance.new("UIStroke")
@@ -532,13 +491,11 @@ local WindowStrokelol = Instance.new("UIStroke")
  ScrollTab.CanvasSize = UDim2.new(0, 0, 0, 0)
  ScrollTab.ScrollBarThickness = 0
  
- 
- 
  local PLL = Instance.new("UIListLayout")
  PLL.Name = "PLL"
  PLL.Parent = ScrollTab
  PLL.SortOrder = Enum.SortOrder.LayoutOrder
- PLL.Padding = UDim.new(0, 3)
+ PLL.Padding = UDim.new(0, 14)
  
  local PPD = Instance.new("UIPadding")
  PPD.Name = "PPD"
@@ -580,7 +537,7 @@ local WindowStrokelol = Instance.new("UIStroke")
  MainPage.ClipsDescendants = true
  MainPage.BackgroundColor3 = Color3.fromRGB(255,255,255)
  MainPage.BackgroundTransparency = 1.000
- MainPage.Size = UDim2.new(0, 560, 0, 590)
+ MainPage.Size = UDim2.new(0, 560, 0, 558)
  
  local PageList = Instance.new("Folder")
  PageList.Name = "PageList"
@@ -594,7 +551,7 @@ local WindowStrokelol = Instance.new("UIStroke")
  UIPageLayout.EasingStyle = Enum.EasingStyle.Quad
  UIPageLayout.FillDirection = Enum.FillDirection.Vertical
  UIPageLayout.Padding = UDim.new(0, 15)
- UIPageLayout.TweenTime = 0.1
+ UIPageLayout.TweenTime = 0.400
  UIPageLayout.GamepadInputEnabled = false
  UIPageLayout.ScrollWheelInputEnabled = false
  UIPageLayout.TouchInputEnabled = false
@@ -633,7 +590,7 @@ local Page2 = Instance.new("Frame")
  MainPage2.ClipsDescendants = true
  MainPage2.BackgroundColor3 = Color3.fromRGB(255,255,255)
  MainPage2.BackgroundTransparency = 1.000
- MainPage2.Size = UDim2.new(0, 560, 0, 590)
+ MainPage2.Size = UDim2.new(0, 560, 0, 558)
  
  local PageList2 = Instance.new("Folder")
  PageList2.Name = "PageList"
@@ -646,12 +603,13 @@ local Page2 = Instance.new("Frame")
  UIPageLayout2.EasingDirection = Enum.EasingDirection.InOut
  UIPageLayout2.EasingStyle = Enum.EasingStyle.Quad
  UIPageLayout2.FillDirection = Enum.FillDirection.Vertical
- UIPageLayout2.Padding = UDim.new(0, 5)
- UIPageLayout2.TweenTime = 0.1
+ UIPageLayout2.Padding = UDim.new(0, 15)
+ UIPageLayout2.TweenTime = 0.400
  UIPageLayout2.GamepadInputEnabled = false
  UIPageLayout2.ScrollWheelInputEnabled = false
  UIPageLayout2.TouchInputEnabled = false
  
+ MakeDraggable(Top,Main)
  
  UserInputService.InputBegan:Connect(function(input)
 if input.KeyCode == Enum.KeyCode[yoo] then
@@ -682,15 +640,25 @@ local LabelTitle = Instance.new("TextLabel")
 		TabButton.Name = text.."Server"
 		TabButton.Text = text
 		TabButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-		TabButton.BackgroundTransparency = 0.5
+		TabButton.BackgroundTransparency = 0.1
 		TabButton.Position = UDim2.new(0, 25, 0, 15)
-		TabButton.Size = UDim2.new(0, 50, 0, 45)
+		TabButton.Size = UDim2.new(0, 50, 0, 50)
 		TabButton.Font = Enum.Font.Code
 		TabButton.TextColor3 = Color3.fromRGB(255, 225, 225)
 		TabButton.TextSize = 12.000
 		TabButton.TextTransparency = 0
 		
-
+		Label3.Name = "Label"
+			Label3.Parent = TabButton
+			Label3.BackgroundColor3 = Color3.fromRGB(255,255,255)
+			Label3.BackgroundTransparency = 1.000
+			Label3.Position = UDim2.new(0, 29, 0, 7)
+			Label3.Size = UDim2.new(0, 15, 0, 15)
+			Label3.Font = Enum.Font.ArialBold
+			Label3.TextColor3 = Color3.fromRGB(225, 225, 225)
+			Label3.TextSize = 10.000
+			Label3.Text = "•"
+		
 local MCNR1 = Instance.new("UICorner")
 	MCNR1.Name = "MCNR"
 	MCNR1.Parent = TabButton
@@ -709,7 +677,7 @@ TabImage.Name = text or "TabImage"
  TabImage.Parent = TabButton
  TabImage.BackgroundColor3 = Color3.fromRGB(255,255,255)
  TabImage.BackgroundTransparency = 1.000
- TabImage.Position = UDim2.new(0, 16, 0, 2)
+ TabImage.Position = UDim2.new(0, 7, 0, 7)
  TabImage.Size = UDim2.new(0, 15, 0, 15)
  TabImage.Image = "rbxassetid://"..tostring(img)
  TabImage.ImageColor3 = Color3.fromRGB(255,255,255)
@@ -782,10 +750,22 @@ TabImage.Name = text or "TabImage"
 		
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
-				MainFramePage.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 20)
+				MainFramePage.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 50)
 				ScrollTab.CanvasSize = UDim2.new(0,0,0,PLL.AbsoluteContentSize.Y + 20)
 			end)
 		end)
+ 
+ coroutine.wrap(function()
+ while wait() do
+ end
+ end)()
+ 
+	 
+ 
+ coroutine.wrap(function()
+ while wait() do
+ end
+ end)()
 	
 	
 	local MainFramePage2 = Instance.new("ScrollingFrame")
@@ -795,7 +775,7 @@ TabImage.Name = text or "TabImage"
 		MainFramePage2.BackgroundColor3 = Color3.fromRGB(51,255,255)
 		MainFramePage2.BackgroundTransparency = 1.000
 		MainFramePage2.BorderSizePixel = 0
-		MainFramePage2.Size = UDim2.new(0, 320, 0, 550)
+		MainFramePage2.Size = UDim2.new(0, 320, 0, 560)
 		MainFramePage2.CanvasSize = UDim2.new(0, 0, 0, 0)
 		MainFramePage2.ScrollBarThickness = 0
 		
@@ -854,7 +834,7 @@ TabImage.Name = text or "TabImage"
 		
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
-				MainFramePage2.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 20)
+				MainFramePage2.CanvasSize = UDim2.new(0,0,0,UIListLayout2.AbsoluteContentSize.Y + 20)
 				ScrollTab.CanvasSize = UDim2.new(0,0,0,PLL.AbsoluteContentSize.Y + 20)
 			end)
 		end)
@@ -1205,6 +1185,7 @@ local Spacee = Instance.new("TextLabel")
 				pcall(callback,toggledd)
 			end
 		end
+
 		
 
 		
@@ -1231,7 +1212,7 @@ DropSizeFrame.Name = droptitle or "DropSizeFrame"
 DropSizeFrame.Parent = MainFramePage
 DropSizeFrame.BackgroundColor3 = _G.SectionColor
 DropSizeFrame.BackgroundTransparency = 1.000
-DropSizeFrame.Size = UDim2.new(0, 209, 0, 60)
+DropSizeFrame.Size = UDim2.new(0, 208, 0, 60)
 
 Frame.Name = "Frame"
 Frame.Parent = DropSizeFrame
@@ -1245,7 +1226,7 @@ UIStroke.Parent = Frame
 UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke.Color = Color3.fromRGB(255,255,255)
 UIStroke.LineJoinMode = Enum.LineJoinMode.Round
-UIStroke.Thickness = 0.5
+UIStroke.Thickness = 0.7
 UIStroke.Transparency = 0
 UIStroke.Enabled = true
 UIStroke.Archivable = true
@@ -1259,7 +1240,7 @@ DropCover.BackgroundColor3 = _G.BackgroundItemColor
 DropCover.BackgroundTransparency = 1.000
 DropCover.BorderSizePixel = 0
 DropCover.Position = UDim2.new(0, 0, 0, 0)
-DropCover.Size = UDim2.new(0, 205, 0, 30)
+DropCover.Size = UDim2.new(0, 202, 0, 30)
 
 ImageLabel.Name = "ImageLabel"
 ImageLabel.Parent = DropCover
@@ -1280,7 +1261,7 @@ Space.Size = UDim2.new(0, 15, 0, 30)
 Space.Font = Enum.Font.Code
 Space.Text = "|"
 Space.TextSize = 13.000
-Space.TextColor3 = Color3.fromRGB(51,255,255)
+Space.TextColor3 = Color3.fromRGB(255,255,255)
 Space.TextXAlignment = Enum.TextXAlignment.Center
 
 Title.Name = "Title"
@@ -1288,10 +1269,10 @@ Title.Parent = DropCover
 Title.BackgroundColor3 = _G.SectionColor
 Title.BackgroundTransparency = 1.000
 Title.Position = UDim2.new(0, 50, 0, 0)
-Title.Size = UDim2.new(0, 205, 0, 30)
+Title.Size = UDim2.new(0, 207, 0, 30)
 Title.Font = Enum.Font.Code
 Title.Text = droptitle or "drop Title"
-Title.TextColor3 = Color3.fromRGB(51,255,255)
+Title.TextColor3 = Color3.fromRGB(255,255,255)
 Title.TextSize = 12.000
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1301,7 +1282,7 @@ ImageButton.BackgroundColor3 = _G.WindowBackgroundColor
 ImageButton.BackgroundTransparency = 1.000
 ImageButton.Position = UDim2.new(0, 179, 0, 7)
 ImageButton.Size = UDim2.new(0, 23, 0, 18)
-ImageButton.Image = "rbxassetid://8825010231"
+ImageButton.Image = "rbxassetid://6583628103"
 ImageButton.ImageColor3 = Color3.fromRGB(51,255,255)
 ImageButton.Rotation = 180
 
@@ -1310,20 +1291,20 @@ DropTextList.Parent = Frame
 DropTextList.BackgroundColor3 = _G.BackgroundItemColor
 DropTextList.BackgroundTransparency = 1.000
 DropTextList.Position = UDim2.new(0, 3, 0, 30)
-DropTextList.Size = UDim2.new(0, 205, 0, 25)
+DropTextList.Size = UDim2.new(0, 199, 0, 25)
 DropTextList.Font = Enum.Font.Code
 DropTextList.Text = v or "Select First"
-DropTextList.TextColor3 = Color3.fromRGB(51,255,255)
+DropTextList.TextColor3 = Color3.fromRGB(255,255,255)
 DropTextList.TextSize = 12.000
 DropTextList.TextXAlignment = Enum.TextXAlignment.Center
 
 UICorner2.Parent = DropTextList
-UICorner2.CornerRadius = UDim.new(0,3)
+UICorner2.CornerRadius = UDim.new(0,0)
 
 DropStrokeList.Name = "DropStrokeList"
 DropStrokeList.Parent = DropTextList
 DropStrokeList.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-DropStrokeList.Color = Color3.fromRGB(51,255,255)
+DropStrokeList.Color = Color3.fromRGB(255,255,255)
 DropStrokeList.LineJoinMode = Enum.LineJoinMode.Round
 DropStrokeList.Thickness = 0.2
 DropStrokeList.Transparency = 0
@@ -1341,7 +1322,7 @@ DropItemScroll.Parent = Frame
 DropItemScroll.BackgroundColor3 = _G.SectionColor
 DropItemScroll.BackgroundTransparency = 1.000
 DropItemScroll.Position = UDim2.new(0, 3, 0, 60)
-DropItemScroll.Size = UDim2.new(0, 205, 0, 0)
+DropItemScroll.Size = UDim2.new(0, 207, 0, 0)
 DropItemScroll.ScrollBarThickness = 0
 DropItemScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
 
@@ -1545,21 +1526,21 @@ DropSizeFrame1.Name = droptitle or "DropSizeFrame"
 DropSizeFrame1.Parent = MainFramePage2
 DropSizeFrame1.BackgroundColor3 = _G.SectionColor
 DropSizeFrame1.BackgroundTransparency = 1.000
-DropSizeFrame1.Size = UDim2.new(0, 205, 0, 59)
+DropSizeFrame1.Size = UDim2.new(0, 205, 0, 60)
 
 Frame1.Name = "Frame"
 Frame1.Parent = DropSizeFrame1
 Frame1.BackgroundColor3 = Color3.fromRGB(30,30,30)
 Frame1.BorderSizePixel = 0
 Frame1.Position = UDim2.new(0, 3, 0, 0)
-Frame1.Size = UDim2.new(0, 206, 0, 60)
+Frame1.Size = UDim2.new(0, 205, 0, 60)
 
 UIStroke1.Name = "UIStroke"
 UIStroke1.Parent = Frame1
 UIStroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke1.Color = Color3.fromRGB(255,255,255)
 UIStroke1.LineJoinMode = Enum.LineJoinMode.Round
-UIStroke1.Thickness = 0.5
+UIStroke1.Thickness = 0.7
 UIStroke1.Transparency = 0
 UIStroke1.Enabled = true
 UIStroke1.Archivable = true
@@ -1615,7 +1596,7 @@ ImageButton1.BackgroundColor3 = _G.WindowBackgroundColor
 ImageButton1.BackgroundTransparency = 1.000
 ImageButton1.Position = UDim2.new(0, 179, 0, 7)
 ImageButton1.Size = UDim2.new(0, 23, 0, 18)
-ImageButton1.Image = "rbxassetid://8825010231"
+ImageButton1.Image = "rbxassetid://6583628103"
 ImageButton1.ImageColor3 = Color3.fromRGB(51,255,255)
 ImageButton1.Rotation = 180
 
@@ -1632,7 +1613,7 @@ DropTextList1.TextSize = 12.000
 DropTextList1.TextXAlignment = Enum.TextXAlignment.Center
 
 UICorner21.Parent = DropTextList1
-UICorner21.CornerRadius = UDim.new(0,3)
+UICorner21.CornerRadius = UDim.new(0,0)
 
 DropStrokeList1.Name = "DropStrokeList"
 DropStrokeList1.Parent = DropTextList1
@@ -2608,7 +2589,7 @@ TextboxLabel.Name = "TextboxLabel"
 			UICorner.Parent = RealTextbox
 		end
 		
-		function main:AddTextboxRightt(text,texts,disappear,callback)
+		function main:AddTextboxRight(text,texts,disappear,callback)
 			local Textboxx = Instance.new("Frame")
 			local TextboxCornerr = Instance.new("UICorner")
 			local Textboxxx = Instance.new("Frame")
@@ -3439,7 +3420,7 @@ function Goto(Pos)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoAdvanceDungeon or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Candy or _G.Cocoa or _G.Ectoplasm or _G.AutoRedioactive or _G.Chest or _G.AutoSaw or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+                if _G.AutoAdvanceDungeon or _G.AutoMysticIsland2 or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Candy or _G.Cocoa or _G.Ectoplasm or _G.AutoRedioactive or _G.Chest or _G.AutoSaw or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
                     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                         local Noclip = Instance.new("BodyVelocity")
                         Noclip.Name = "BodyClip"
@@ -3455,7 +3436,7 @@ function Goto(Pos)
     spawn(function()
         pcall(function()
             game:GetService("RunService").Stepped:Connect(function()
-                if _G.AutoAdvanceDungeon or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Cocoa or _G.Candy or _G.Ectoplasm or _G.Chest1 or _G.AutoRedioactive or _G.AutoSaw or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+                if _G.AutoAdvanceDungeon or _G.AutoMysticIsland2 or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Cocoa or _G.Candy or _G.Ectoplasm or _G.Chest1 or _G.AutoRedioactive or _G.AutoSaw or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
                     for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
                         if v:IsA("BasePart") then
                             v.CanCollide = false    
@@ -3515,7 +3496,7 @@ function Goto(Pos)
 
 
 
-    local RenUi = Update:AddWindow("",Enum.KeyCode.RightControl)
+    local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightControl)
 
     local Main = RenUi:AddTab("Main","6026568198")
     local Teleport = RenUi:AddTab("Island","6026568198")
@@ -3591,8 +3572,8 @@ Main:AddTextboxLeft("job id ","...",true,function(s)
     
     
     
-    Main:AddToggleRight("Auto Set Home",true,function(value)
-        _G.AutoSetSpawn = value
+    Main:AddToggleRight("Auto Set Home",_G.AutoSetHome,function(value)
+        _G.AutoSetHome = value
     end)
     
     spawn(function()
@@ -3682,14 +3663,14 @@ spawn(function()
     end)
 end)
     
-    Main:AddToggleRight("BringMon",true,function(value)
-        _G.BringMonster = value
+    Main:AddToggleRight("BringMon",_G.BringMon,function(value)
+        _G.BringMon = value
     end)
     
      spawn(function()
         while task.wait() do
             pcall(function()
-                if _G.BringMonster then
+                if _G.BringMon then
                     CheckQuest()
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
@@ -4083,14 +4064,14 @@ end)
         end
     end)
     
-     Main:AddToggleRight("Remove effect Death",true,function(a)
-    _G.Remove = a
+     Main:AddToggleRight("Remove effect Death",_G.RemoveDeathEffect,function(a)
+    _G.RemoveDeathEffect = a
     end)
     
 
 spawn(function()
     game:GetService('RunService').Stepped:Connect(function()
-        if _G.Remove then
+        if _G.RemoveDeathEffect then
             for i, v in pairs(game:GetService("ReplicatedStorage").Effect.Container:GetChildren()) do
                 if v.Name == "Death" then
                     v:Destroy() 
@@ -4112,10 +4093,6 @@ end)
                 Pointstat:Set("Stat Points : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Points.Value))
             end)
         end
-    end)
-    
-    Main:AddToggleRight("KaiTun Stats",_G.KaiTunStats,function(a)
-    _G.KaiTunStats = a
     end)
     
     Main:AddToggleRight("Melee Stats",_G.Auto_Melee,function(value)
@@ -4185,7 +4162,7 @@ end)
         end
     end)
     
-    Main:AddToggleRight("Spectate Players",false,function(value)
+    Main:AddToggleRight("Spectate Players",SpectatePlys,function(value)
         SpectatePlys = value
         local plr1 = game:GetService("Players").LocalPlayer.Character.Humanoid
         local plr2 = game:GetService("Players"):FindFirstChild(_G.SelectPly)
@@ -4195,7 +4172,7 @@ end)
         game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
     end)
     
-    Main:AddToggleRight("TP Players",false,function(value)
+    Main:AddToggleRight("TP Players",_G.TeleportPly,function(value)
         _G.TeleportPly = value
         StopTween(_G.TeleportPly)
     end)
@@ -4214,7 +4191,7 @@ end)
     
      
     
-    Main:AddToggleRight("Auto Kill Players",false,function(value)
+    Main:AddToggleRight("Auto Kill Players",_G.Auto_Kill_Ply,function(value)
         _G.Auto_Kill_Ply = value
         StopTween(_G.Auto_Kill_Ply)
     end)
@@ -4273,7 +4250,7 @@ end)
         end
     end)
     
-    Main:AddToggleRight("Aimbot Gun",false,function(value)
+    Main:AddToggleRight("Aimbot Gun",_G.Aimbot_Gun,function(value)
         _G.Aimbot_Gun = value
     end)
     
@@ -4294,7 +4271,7 @@ end)
         end
     end)
     
-    Main:AddToggleRight("Aimbot Skill",false,function(value)
+    Main:AddToggleRight("Aimbot Skill",_G.Aimbot_Skill,function(value)
         _G.Aimbot_Skill = value
     end)
     
@@ -4315,7 +4292,7 @@ end)
     
     Main:AddSeperatorRight("PvP")
     
-    Main:AddToggleRight("Auto Enable PVP ",false,function(value)
+    Main:AddToggleRight("Auto Enable PVP ",_G.EnabledPvP,function(value)
         _G.EnabledPvP = value
     end)
     
@@ -4359,9 +4336,9 @@ end)
                 elseif len(Bounty) <= 3 then
                     Bounty1 = Bounty
                 end
-                if tonumber(Bounty) == 25000000 then
+                if tonumber(Bounty) == 30000000 then
                     Current:Set("Current Bounties : "..Bounty1.." [ Max ]")
-                elseif tonumber(Bounty) < 25000000 then
+                elseif tonumber(Bounty) < 30000000 then
                     Current:Set("Current Bounties : "..Bounty1)
                 end
             end)
@@ -4585,21 +4562,6 @@ end)
     
     Main:AddLineRight("")
 
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.KaiTunStats then
-                    if World1 then
-                       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
-                    elseif World2 then
-                       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
-                       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",_G.PointStats)
-                    end
-                end
-            end)
-        end
-    end)
     
     spawn(function()
         while wait() do
@@ -5356,14 +5318,14 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
                                             end)
                                                 
     if World1 then
-        Main:AddToggleLeft("ทำเควสไปโลก2",_G.AutoSecondSea,function(value)
-            _G.AutoSecondSea = value
-            StopTween(_G.AutoSecondSea)
+        Main:AddToggleLeft("Auto New World",_G.AutoNewWorld,function(value)
+            _G.AutoNewWorld = value
+            StopTween(_G.AutoNewWorld)
         end)
     
         spawn(function()
             while wait() do 
-                if _G.AutoSecondSea then
+                if _G.AutoNewWorld then
                     pcall(function()
                         local MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
                         if MyLevel >= 700 and World1 then
@@ -5396,7 +5358,7 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
                                                             game:GetService("VirtualUser"):CaptureController()
                                                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                                             sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                                                        until not _G.AutoSecondSea or not v.Parent or v.Humanoid.Health <= 0
+                                                        until not _G.AutoNewWorld or not v.Parent or v.Humanoid.Health <= 0
                                                     end
                                                 else 
                                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
@@ -5405,7 +5367,7 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
                                         end
                                     else
                                         if game:GetService("ReplicatedStorage"):FindFirstChild("Ice Admiral [Lv. 700] [Boss]") then
-                                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Ice Admiral [Lv. 700] [Boss]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Ice Admiral [Lv. 700] [Boss]").HumanoidRootPart.CFrame * CFrame.new(0,45,0))
                                         end
                                     end
                                 end
@@ -5418,7 +5380,7 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
     end
     
     if World2 then
-        Main:AddToggleLeft("ทำเควสไปโลก3",_G.AutoThirdSea,function(value)
+        Main:AddToggleLeft("Auto Third Sea",_G.AutoThirdSea,function(value)
             _G.AutoThirdSea = value
             StopTween(_G.AutoThirdSea)
         end)
@@ -5467,7 +5429,7 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
     end
     
     if World2 then
-        Main:AddToggleLeft("ตีโรงงาน",_G.AutoFactory,function(value)
+        Main:AddToggleLeft("Auto Factory",_G.AutoFactory,function(value)
             _G.AutoFactory = value
             StopTween(_G.AutoFactory)
         end)
@@ -5529,14 +5491,41 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
             end
         end)
         
+        
+        function topostp(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/350, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+       
+        
         function er(pos)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
     end
         
-    Main:AddToggleLeft("Auto Mystic Island",_G.AutoMysticIsland2,function(value)
+   Main:AddToggleLeft("Auto Mystic Island",_G.AutoMysticIsland2,function(value)
             _G.AutoMysticIsland2 = value
+            StopTween(_G.AutoMysticIsland2)
+            repeat topostp(CFrame.new(2185.516845703125, 5.371269226074219, -6283.82958984375)) wait() until (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position-Vector3.new(2185.516845703125, 5.371269226074219, -6283.82958984375)).Magnitude <= 10
+            local args = {
+             [1] = "BuyBoat",
+            [2] = "MarineBrigade"
+             }
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
             game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat.MaxSpeed = 350
+        
         end)
+      
+      
+      
       
     spawn(function()
             while wait() do
@@ -5550,6 +5539,54 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
         end
     end)
     end
+      
+      
+      
+      
+    
+    
+    Main:AddSeperatorLeft("Mob Aura")
+    
+    Main:AddSliderLeft("Distance Bob Aura",1,5000,100,function(a)
+        _G.DistanceAura = a
+    end)
+    
+    Main:AddToggleLeft("Mob Aura",nil,function(a)
+        _G.MobAura = a 
+        end)
+    
+    spawn(function()
+			while wait() do
+				pcall(function()
+					if  _G.MobAura then
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= _G.DistanceAura then
+								repeat wait()
+									StartMagnet = true
+									AutoHaki()
+									EquipWeapon(_G.SelectWeapon)
+									PosMon = v.HumanoidRootPart.CFrame
+									game:GetService'VirtualUser':CaptureController()
+									game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+									v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+									v.HumanoidRootPart.Transparency = 1
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									v.Humanoid:ChangeState(11)
+									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,45,0))
+									MagnetMobAura = true
+								until not  _G.MobAura or not v.Parent or v.Humanoid.Health <= 0
+								MagnetMobAura = false
+								StartMagnet = false
+							end
+						end
+					end
+				end)
+		end
+	end)
+
+    
 Main:AddSeperatorLeft("Event")
 Heat = Main:AddLabelLeft("")
 
@@ -5683,15 +5720,20 @@ spawn(function()
                             end
                             end
 end)
-                        
-Main:AddToggleLeft("Rabbit Trial",nil,function(a)
-    _G.Rabbit = a
+              
+Main:AddToggleLeft("Auto Win Trial",_G.Auto_Win_Trial,function(a)
+_G.Auto_Win_Trial = a
+StopTween(_G.Auto_Win_Trial)
 end)
+          
+
+
+
 
 spawn(function()
             while wait() do
                 if _G.Rabbit then
-                    pcall(function()
+                    pcall(function()     
           er(CFrame.new(game:GetService("Workspace").StartPoint.Position))
                                end)
                             end
@@ -5699,10 +5741,6 @@ spawn(function()
                             end)
 
 
-Main:AddToggleLeft("Sky Trial",nil,function(a)
-    _G.sky = a
-    StopTween(_G.sky)
-    end)
     
    spawn(function()
             while wait() do
@@ -5714,10 +5752,6 @@ Main:AddToggleLeft("Sky Trial",nil,function(a)
                             end
                             end)
 
-Main:AddToggleLeft("Human Trial",nil,function(a)
-    _G.human = a
-    StopTween(_G.human)
-    end)
     
     spawn(function()
         while wait() do 
@@ -5762,10 +5796,6 @@ Main:AddToggleLeft("Human Trial",nil,function(a)
         end
     end)
 
- Main:AddToggleLeft("Ghoul Trial",nil,function(a)
-    _G.ghoul = a
-    StopTween(_G.ghoul)
-    end)
     
     spawn(function()
         while wait() do 
@@ -5805,10 +5835,6 @@ Main:AddToggleLeft("Human Trial",nil,function(a)
         end
     end)
 
- Main:AddToggleLeft("Fifh Trial",nil,function(a)
-      _G.Sea1 = a
-      StopTween(_G.Sea1)
-      end)
       
       spawn(function()
     while task.wait() do
@@ -5837,11 +5863,6 @@ Main:AddToggleLeft("Human Trial",nil,function(a)
     end
 end)
     
-     Main:AddToggleLeft("Cybot Trial",nil,function(a)
-      _G.bot = a
-      StopTween(_G.bot)
-      end)
-      
       spawn(function()
     while task.wait() do
         if _G.bot then
@@ -7598,11 +7619,11 @@ Teleport:AddSeperatorLeft("Teleport World")
                     TimeRaid:Set(game:GetService("Players").LocalPlayer.PlayerGui.Main.Timer.Text)
                 else
                     TimeRaid:Set("Wait.")
-                    Wait(1)
+                    Wait(.2)
                     TimeRaid:Set("Wait..")
-                    wait(1)
+                    wait(.2)
                     TimeRaid:Set("Wait...")
-                    wait(1)
+                    wait(.2)
                 end
             end
         end)
@@ -7686,7 +7707,7 @@ Teleport:AddSeperatorLeft("Teleport World")
             "Human: Buddha",
             "Sand",
             "Bird: Phoenix",
-            "Dough"
+            "Dough Dough"
              },function(value)
             
         _G.SelectChip = value
@@ -7786,22 +7807,25 @@ Teleport:AddSeperatorLeft("Teleport World")
    
    
         Teleport:AddButtonRight("Tp To Lab",function()
-            TP(CFrame.new(-6438.73535, 250.645355, -4501.50684))
-        end)
-   
-        Teleport:AddButtonRight("Tp To Lab",function()
+            if World2 then
+TP(CFrame.new(-6438.73535, 250.645355, -4501.50684))
+        end
+if World3 then
             TP(CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818))
-        end)
+end
+    
+end)
    
    
 
     
         Teleport:AddButtonRight("Tp To Awaken Room",function()
-            TP(CFrame.new(266.227783, 1.39509034, 1857.00732))
-        end)
-   
-        Teleport:AddButtonRight("Tp To Awaken Room",function()
+           if World2 then
+           TP(CFrame.new(266.227783, 1.39509034, 1857.00732))
+end
+if World3 then
             TP(CFrame.new(-11571.440429688, 49.172668457031, -7574.7368164062))
+end
         end)
 
     Teleport:AddButtonRight("TP To Next Island",function()
@@ -7820,6 +7844,214 @@ Teleport:AddSeperatorLeft("Teleport World")
         end)
     end)
     
+    Teleport:AddLineLeft("")
+    
+   Teleport:AddSeperatorLeft("fruit Spawn")
+    
+ local befruitp = Teleport:AddLabelLeft("")
+    
+          function Sate()
+    		if game:GetService("Workspace")["Fruit "].Fruit then
+                    befruitp:Set("Fruit : 🟢")    
+                else
+                    befruitp:Set("Fruit : 🔴")    
+                end
+                end
+
+       spawn(function()
+        while true do wait(0.1)
+            pcall(function()
+                Sate()
+            end)
+        end
+    end)
+    
+    Teleport:AddToggleLeft("",false,function(value)
+        rryio = value
+        local tr = game:GetService("Players").LocalPlayer.Character.Humanoid
+        local tr = game:GetService("Workspace")["Fruit "].Fruit
+        repeat wait(.1)
+            game:GetService("Workspace").Camera.CameraSubject = game:GetService("Workspace")["Fruit "].Fruit
+        until rryio == false 
+        game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
+    end)
+    
+    Teleport:AddToggleLeft("TP To Fruit Spawn",nil,function(a)
+_G.fts = a
+StopTween(_G.fts)
+end)
+
+spawn(function()
+            while wait() do
+                if _G.fts then
+                    pcall(function()
+                            topos(CFrame.new(game:GetService("Workspace")["Fruit "].Fruit.Position))
+                            end)
+                            end
+                            end
+                            end)
+
+
+    
+    Teleport:AddSeperatorLeft("Sniper")
+    
+    FruitList = {
+        "Bomb-Bomb",
+        "Spike-Spike",
+        "Chop-Chop",
+        "Spring-Spring",
+        "Kilo-Kilo",
+        "Spin-Spin",
+        "Bird: Falcon",
+        "Smoke-Smoke",
+        "Flame-Flame",
+        "Ice-Ice",
+        "Sand-Sand",
+        "Dark-Dark",
+        "Revive-Revive",
+        "Diamond-Diamond",
+        "Light-Light",
+        "Love-Love",
+        "Rubber-Rubber",
+        "Barrier-Barrier",
+        "Magma-Magma",
+        "Door-Door",
+        "Quake-Quake",
+        "Human-Human: Buddha",
+        "String-String",
+        "Bird-Bird: Phoenix",
+        "Rumble-Rumble",
+        "Paw-Paw",
+        "Gravity-Gravity",
+        "Dough-Dough",
+        "Venom-Venom",
+        "Shadow-Shadow",
+        "Control-Control",
+        "Soul-Soul",
+        "Dragon-Dragon",
+        "Leopard-Leopard"
+    }
+    
+    _G.SelectFruit = ""
+    Teleport:AddDropdownLeft("Select Fruits Sniper",FruitList,function(value)
+        _G.SelectFruit = value
+    end)
+    
+    Teleport:AddToggleLeft("Buy Fruit",_G.AutoBuyFruitSniper,function(value)
+        _G.AutoBuyFruitSniper = value
+    end)
+    
+    Teleport:AddSeperatorLeft("Others")
+    
+    Teleport:AddDropdownLeft("Select Fruits Eat",FruitList,function(value)
+        _G.SelectFruitEat = value
+    end)
+    
+    Teleport:AddToggleLeft("Eat Fruits",_G.AutoEatFruit,function(value)
+        _G.AutoEatFruit = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.AutoEatFruit then
+                    game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectFruitEat).EatRemote:InvokeServer()
+                end
+            end
+        end)
+    end)
+    
+    Teleport:AddToggleLeft("Eat Fruits + Hop",_G.AutoEatFruitHop,function(value)
+        _G.AutoEatFruitHop = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.1) do wait(10)
+                if _G.AutoEatFruitHop and _G.SelectFruitEat ~= nil then
+                    if not game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectFruitEat) or not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(_G.SelectFruitEat) then
+                        Hop()
+                    else
+                        game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectFruitEat).EatRemote:InvokeServer()
+                    end
+                end
+            end
+        end)
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.AutoBuyFruitSniper then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit",_G.SelectFruit)
+                end 
+            end
+        end)
+    end)
+    
+    Teleport:AddToggleLeft("Auto Random Fruit",_G.Random_Auto,function(value)
+        _G.Random_Auto = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.Random_Auto then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+                end 
+            end
+        end)
+    end)
+    
+    Teleport:AddButtonLeft("Random Fruit",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+    end)
+    
+    Teleport:AddToggleLeft("Auto Store Fruit",_G.AutoStoreFruit,function(value)
+        _G.AutoStoreFruit = value
+    end)
    
-   
+  spawn(function()
+    while task.wait(0.1) do
+        if _G.AutoStoreFruit then
+            pcall(function()
+                for i,v in pairs(FruitList) do
+                for x,y in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if string.find(y.Name, "Fruit") then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit",v,game.Players.LocalPlayer.Backpack[y.Name])
+                    end
+                end
+                end
+            end)
+        end
+    end
+end)
+    
+  
+    Teleport:AddToggleLeft("Bring Fruit",_G.BringFruit,function(a)
+    _G.Bring = a
+    end)
+    
+    spawn(function()
+      while wait() do 
+        pcall(function() 
+          if _G.Bring then 
+  			  for i,v in pairs(game:GetService("Workspace"):GetChildren()) do if v:IsA("Tool") then if string.find(v.Name, "Fruit") then
+   				 repeat wait() 
+   					 wait(.1) 
+    					v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+   				 wait(.1) 
+   				 v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2, 0)
+   					 wait(1) 
+   					 firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,v.Handle,0)
+   					 wait(.1) 
+   					 until not _G.Bring  or v.Parent == game.Players.LocalPlayer.Character 
+    end
+    end
+    end
+    end
+    end)
+    end
+    end)
    
