@@ -3471,6 +3471,46 @@ function Goto(Pos)
         end
     end
     
+    task.spawn(function()
+    game:GetService("RunService").Stepped:Connect(function()
+        pcall(function()
+            --[World 1]
+            if _G.Auto_Win_Trial then
+if syn then
+					setfflag("HumanoidParallelRemoveNoPhysics", "False")
+					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+					game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+					if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+						game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+					end
+				else
+					if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+						if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
+							if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+								game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+							end
+							local BodyVelocity = Instance.new("BodyVelocity")
+							BodyVelocity.Name = "BodyVelocity1"
+							BodyVelocity.Parent =  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+							BodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
+							BodyVelocity.Velocity = Vector3.new(0, 0, 0)
+						end
+					end
+					for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							v.CanCollide = false    
+						end
+					end
+				end
+			else
+				if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1"):Destroy();
+				end
+			end
+		end)
+	end)
+end)
+    
     spawn(function()
         pcall(function()
             while wait() do
@@ -5478,6 +5518,20 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
         end
     end)
     
+    Main:AddToggleLeft("TP To NPC",_G.AutoMysticIsland1,function(value)
+            _G.AutoMysticIsland1 = value
+        end)
+    
+     spawn(function()
+            while wait() do
+                if _G.AutoMysticIsland1 then
+                    pcall(function()
+                            topos(CFrame.new(game:GetService("Workspace").NPCs["Advanced Fruit Dealer"].Hair.Handle.Position))
+                    end)
+                end
+            end
+        end)
+    
         Main:AddToggleLeft("TP To Mystic Islnd",_G.AutoMysticIsland,function(value)
             _G.AutoMysticIsland = value
         end)
@@ -5486,8 +5540,12 @@ Main:AddToggleLeft("Auto Farm",_G.AutoFarm,function(value)
             while wait() do
                 if _G.AutoMysticIsland then
                     pcall(function()
-                            topos(CFrame.new(game:GetService("Workspace").Map.MysticIsland.Position))
-                    end)
+                        if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                            _G.AutoMysticIsland2 = false
+                            topos(CFrame.new(game:GetService("Workspace").Map.MysticIsland.npcspawn.npcSpawn.Position))
+end
+                        end)
+                
                 end
             end
         end)
@@ -5548,43 +5606,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF
       
       
      
-Main:AddSeperatorLeft("Race V4")
 
-Main:AddToggleLeft("Auto Ancient One",nil,function(a)
-    _G.QuestOne = a
-    _G.UpgradeRace = a
-    StopTween()
-end)
-
- spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.UpgradeRace then
-                    game:GetService("Players").LocalPlayer.Backpack.Awakening.RemoteFunction:InvokeServer(true)
-                    end
-            end
-        end)
-            end)
-
-no = game.Players.LocalPlayer.Name
-
-spawn(function()
-            while wait() do
-                if _G.QuestOne then
-                            pcall(function()
-                   if game:GetService("Workspace").Characters[no].RaceEnergy.Value == 0 then
-                  _G.Auto_Bone2 = true
-                else
-                 if game:GetService("Workspace").Characters[no].RaceParticle then
-                   _G.Auto_Bone2 = false
-                   topos(CFrame.new(-10266.6787, 507.539215, 6232.93994, -0.32111761, 2.04228925e-11, -0.947039306, 2.5864427e-08, 1, -8.74842243e-09, 0.947039306, -2.73039031e-08, -0.32111761))
-                   
-                    end
-                end
-                end)
-            end
-    end
-end)
     
     
     Main:AddSeperatorLeft("Mob Aura")
@@ -5696,23 +5718,53 @@ Main:AddToggleLeft("Auto Hearts",nil,function(a)
         end
     end)
 
-local ppo = Main:AddLabelLeft("Gear is : 🔴")
+Main:AddSeperatorLeft("Race V4")
 
- function uuio()
-                if game:GetService("Workspace").Map.MysticIsland:GetChildren("Gear")[220] then
-                    ppo:Set("Gaer is : 🟢")    
-                else
-                    ppo:Set("Gear is : 🔴")    
-                end
-                end
+Race = Main:AddLabelLeft("You Not Unlock")
 
-         spawn(function()
-        while wait() do
-            pcall(function()
-                uuio()
-            end)
-        end
+ spawn(function()
+        pcall(function()
+            while wait() do
+                Race:Set("Gear Chack : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("UpgradeRace","Check"))
+            end
+        end)
     end)
+
+Main:AddToggleLeft("Auto Ancient One",nil,function(a)
+    _G.QuestOne = a
+    _G.UpgradeRace = a
+    StopTween()
+end)
+
+ spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.UpgradeRace then
+                    game:GetService("Players").LocalPlayer.Backpack.Awakening.RemoteFunction:InvokeServer(true)
+                    end
+            end
+        end)
+            end)
+
+no = game.Players.LocalPlayer.Name
+
+spawn(function()
+            while wait() do
+                if _G.QuestOne then
+                            pcall(function()
+                   if game:GetService("Workspace").Characters[no].RaceEnergy.Value == 0 then
+                  _G.Auto_Bone2 = true
+                else
+                 if game:GetService("Workspace").Characters[no].RaceParticle then
+                   _G.Auto_Bone2 = false
+                   topos(CFrame.new(-10266.6787, 507.539215, 6232.93994, -0.32111761, 2.04228925e-11, -0.947039306, 2.5864427e-08, 1, -8.74842243e-09, 0.947039306, -2.73039031e-08, -0.32111761))
+                   
+                    end
+                end
+                end)
+            end
+    end
+end)
 
 Main:AddToggleLeft("TP to Gear",nil,function(a)
 _G.Gear = a
@@ -5731,17 +5783,8 @@ spawn(function()
 
 
 
-Main:AddSeperatorLeft("Race V4")
 
-Race = Main:AddLabelLeft("You Not Unlock")
 
- spawn(function()
-        pcall(function()
-            while wait() do
-                Race:Set("Gear Chack : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("UpgradeRace","Check"))
-            end
-        end)
-    end)
 
 
 
@@ -5765,11 +5808,26 @@ end)
               
 Main:AddToggleLeft("Auto Win Trial",_G.Auto_Win_Trial,function(a)
 _G.Auto_Win_Trial = a
-StopTween(_G.Auto_Win_Trial)
+StopTween()
+if _G.Auto_Win_Trial then
+					if game.Players.LocalPlayer.Data.Race.Value == 'Mink' then
+						_G.Rabbit = true
+						
+					elseif game.Players.LocalPlayer.Data.Race.Value == 'Human' then
+						_G.human = true
+						
+					elseif game.Players.LocalPlayer.Data.Race.Value == 'Skypiea' then
+						_G.sky = true
+						
+					elseif game.Players.LocalPlayer.Data.Race.Value == 'Ghoul' then
+						_G.ghoul = true
+						
+					elseif game.Players.LocalPlayer.Data.Race.Value == 'Cyborg' then
+					    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
+					end
+				   
+				end
 end)
-          
-
-
 
 
 spawn(function()
@@ -5904,16 +5962,11 @@ spawn(function()
         end
     end
 end)
+
+     
     
-      spawn(function()
-    while task.wait() do
-        if _G.bot then
-            pcall(function()
-             topos(CFrame.new(-20009.30078125, 9953.6826171875, -9.299903869628906))
-              end)
-        end
-    end
-end)
+
+
 
 local Bone = Main:AddLabelRight("Bone : 0")
 
@@ -8254,6 +8307,30 @@ Shop:AddButtonLeft("Buy Random Race",function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
     
+    Shop:AddButtonLeft("Ghoul",function()
+        local args = {
+    [1] = "Ectoplasm",
+    [2] = "Change",
+    [3] = 4
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+local args = {
+    [1] = "Ectoplasm",
+    [2] = "BuyCheck",
+    [3] = 4
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+end)
+Shop:AddButtonLeft("Cyborg",function()
+    local args = {
+    [1] = "CyborgTrainer",
+    [2] = "Buy"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+end)
     Shop:AddSeperatorLeft("Bones")
     
     Shop:AddButtonLeft("Buy Surprise",function()
