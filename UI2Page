@@ -5542,7 +5542,41 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF
       
       
       
-      
+      spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.UpgradeRace then
+                    game:GetService("Players").LocalPlayer.Backpack.Awakening.RemoteFunction:InvokeServer(true)
+                    end
+            end
+        end)
+            end)
+Main:AddSeperatorLeft("Race V4")
+
+Main:AddToggleLeft("Auto Ancient One",nil,function(a)
+    _G.QuestOne = a
+    _G.UpgradeRace = a
+    StopTween()
+end)
+no = game.Players.LocalPlayer.Name
+
+spawn(function()
+            while wait() do
+                if _G.QuestOne then
+                            pcall(function()
+                   if game:GetService("Workspace").Characters[no].RaceEnergy.Value == 0 then
+                  _G.Auto_Bone2 = true
+                else
+                 if game:GetService("Workspace").Characters[no].RaceParticle then
+                   _G.Auto_Bone2 = false
+                   topos(CFrame.new(-10266.6787, 507.539215, 6232.93994, -0.32111761, 2.04228925e-11, -0.947039306, 2.5864427e-08, 1, -8.74842243e-09, 0.947039306, -2.73039031e-08, -0.32111761))
+                   
+                    end
+                end
+                end)
+            end
+    end
+end)
     
     
     Main:AddSeperatorLeft("Mob Aura")
