@@ -322,7 +322,6 @@ local ListNof = Instance.new("Frame")
 
  
  function Update:AddNotification(textdesc)
- local NotificationHold = Instance.new("TextButton")
  local NotificationFrame = Instance.new("Frame")
  local OkayBtn = Instance.new("TextButton")
  local OkayBtnCorner = Instance.new("UICorner")
@@ -333,32 +332,21 @@ local ListNof = Instance.new("Frame")
  local NotifHolderUIStroke = Instance.new("UIStroke")
  local Line = Instance.new("Frame")
  
- NotificationHold.Name = "NotificationHold"
- NotificationHold.Parent = Main
- NotificationHold.BackgroundColor3 = _G.WindowBackgroundColor
- NotificationHold.BackgroundTransparency = 0.4
- NotificationHold.BorderSizePixel = 0
- NotificationHold.Size = UDim2.new(0, 589, 0, 378)
- NotificationHold.AutoButtonColor = false
- NotificationHold.Font = Enum.Font.SourceSans
- NotificationHold.Text = ""
- NotificationHold.TextColor3 = _G.SectionTextColor
- NotificationHold.TextSize = 13.000
+
  
- TweenService:Create(NotificationHold, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.4}):Play()
- wait(0.4)
+ 
  
  NotificationFrame.Name = "NotificationFrame"
- NotificationFrame.Parent = NotificationHold
+ NotificationFrame.Parent = SOMEXHUB
  NotificationFrame.AnchorPoint = Vector2.new(0.5, 0.5)
  NotificationFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
  NotificationFrame.BorderColor3 = _G.SectionColor
  NotificationFrame.BorderSizePixel = 0
  NotificationFrame.ClipsDescendants = true
- NotificationFrame.Position = UDim2.new(0, 295, 0, 190)
+ NotificationFrame.Position = UDim2.new(0, 1200, 0, 20)
  NotificationFrame.Size = UDim2.new(0, 0, 0, 0)		
  
- NotificationFrame:TweenSize(UDim2.new(0, 400, 0, 250), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+ NotificationFrame:TweenSize(UDim2.new(0, 200, 0, 100), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
  
  NotifCorner.Name = "NotifCorner"
  NotifCorner.Parent = NotificationFrame
@@ -379,13 +367,13 @@ local ListNof = Instance.new("Frame")
  OkayBtn.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
  OkayBtn.BorderSizePixel = 1
  OkayBtn.BorderColor3 = _G.SectionColor
- OkayBtn.Position = UDim2.new(0, 125, 0, 190)
- OkayBtn.Size = UDim2.new(0, 150, 0, 30)
+ OkayBtn.Position = UDim2.new(0, 180, 0, 5)
+ OkayBtn.Size = UDim2.new(0, 20, 0, 20)
  OkayBtn.AutoButtonColor = true
  OkayBtn.Font = Enum.Font.SourceSans
- OkayBtn.Text = ""
- OkayBtn.TextColor3 = _G.SectionTextColor
- OkayBtn.TextSize = 13.000
+ OkayBtn.Text = "X"
+ OkayBtn.TextColor3 = Color3.fromRGB(255, 0, 0)
+ OkayBtn.TextSize = 22.000
  
  OkayBtnCorner.CornerRadius = UDim.new(0, 5)
  OkayBtnCorner.Name = "OkayBtnCorner"
@@ -395,8 +383,8 @@ local ListNof = Instance.new("Frame")
  OkayBtnTitle.Parent = OkayBtn
  OkayBtnTitle.BackgroundColor3 = _G.SectionColor
  OkayBtnTitle.BackgroundTransparency = 1.000
- OkayBtnTitle.Size = UDim2.new(0, 150, 0, 30)
- OkayBtnTitle.Text = "OK"
+ OkayBtnTitle.Size = UDim2.new(0, 15, 0, 15)
+ OkayBtnTitle.Text = ""
  OkayBtnTitle.Font = Enum.Font.Code
  OkayBtnTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
  OkayBtnTitle.TextSize = 22.000
@@ -406,7 +394,7 @@ local ListNof = Instance.new("Frame")
  NotificationTitle.BackgroundColor3 = _G.SectionColor
  NotificationTitle.BackgroundTransparency = 1.000
  NotificationTitle.Position = UDim2.new(0, 0, 0, 10)
- NotificationTitle.Size = UDim2.new(0, 400, 0, 25)
+ NotificationTitle.Size = UDim2.new(0, 200, 0, 25)
  NotificationTitle.ZIndex = 3
  NotificationTitle.Font = Enum.Font.Code
  NotificationTitle.Text = "Notification"
@@ -417,15 +405,15 @@ local ListNof = Instance.new("Frame")
  Line.Parent = NotificationFrame
  Line.BackgroundColor3 = _G.SectionColor
  Line.BorderSizePixel = 0
- Line.Position = UDim2.new(0, 10, 0, 40)
- Line.Size = UDim2.new(0, 380, 0, 1)
+ Line.Position = UDim2.new(0, 0, 0, 40)
+ Line.Size = UDim2.new(0, 200, 0, 1)
  
  NotificationDesc.Name = "NotificationDesc"
  NotificationDesc.Parent = NotificationFrame
  NotificationDesc.BackgroundColor3 = _G.SectionColor
  NotificationDesc.BackgroundTransparency = 1.000
- NotificationDesc.Position = UDim2.new(0, 10, 0, 80)
- NotificationDesc.Size = UDim2.new(0, 380, 0, 200)
+ NotificationDesc.Position = UDim2.new(0, 10, 0, 50)
+ NotificationDesc.Size = UDim2.new(0, 200, 0, 100)
  NotificationDesc.Font = Enum.Font.Code
  NotificationDesc.Text = textdesc
 NotificationDesc.TextScaled = false
@@ -3420,7 +3408,7 @@ function Goto(Pos)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoAdvanceDungeon or _G.AutoMysticIsland2 or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Candy or _G.Cocoa or _G.Ectoplasm or _G.AutoRedioactive or _G.Chest or _G.AutoSaw or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+                if _G.AutoAdvanceDungeon  or _G.AutoMysticIsland or _G.AutoMysticIsland2 or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Candy or _G.Cocoa or _G.Ectoplasm or _G.AutoRedioactive or _G.Chest or _G.AutoSaw or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
                     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                         local Noclip = Instance.new("BodyVelocity")
                         Noclip.Name = "BodyClip"
@@ -3548,7 +3536,7 @@ end)
     Date = os.date("%d".." ".."%B".." ".."%Y")
     Main:AddLabelLeft("Day : "..Date)
     
-    
+
 
 
 Main:AddLineLeft("")
@@ -3575,6 +3563,7 @@ spawn(function()
             end
         end)
 
+Update:Nof("txt",2)
 
 Main:AddTextboxLeft("job id ","...",true,function(s)
     _G.jobid = s
@@ -5948,6 +5937,65 @@ end
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
     end
         
+         Main:AddToggleLeft("Auto Chest",_G.Chest2,function(value)
+_G.Chest2 = value
+StopTween(_G.Chest2)
+end)
+
+
+
+spawn(function()
+        while wait() do
+            if _G.Chest2 then
+                pcall(function()
+                    if game:GetService("Workspace").Map.MysticIsland.Chests:FindFirstChild("FragChest") or game:GetService("Workspace").Map.MysticIsland.Chests:FindFirstChild("DiamondChest") then
+                        for i,v in pairs(game:GetService("Workspace").Map.MysticIsland.Chests:GetChildren()) do
+                            if v.Name == "FragChest" or v.Name == "DiamondChest" then
+                                repeat task.wait()
+                                  Goto(v.Position)
+                                until not v.Parent or _G.Chest2 == false
+                     end
+                        end
+                    else
+                        if _G.ChestHop then
+                            Hop()
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+        
+        
+        Main:AddToggleLeft("Auto Chest",_G.Chest,function(value)
+_G.Chest = value
+StopTween(_G.Chest)
+end)
+
+
+
+spawn(function()
+        while wait() do
+            if _G.Chest then
+                pcall(function()
+                    if game:GetService("Workspace").Map.MysticIsland.Chests:FindFirstChild("FragChest") or game:GetService("Workspace").Map.MysticIsland.Chests:FindFirstChild("DiamondChest") then
+                        for i,v in pairs(game:GetService("Workspace").Map.MysticIsland.Chests:GetChildren()) do
+                            if v.Name == "FragChest" or v.Name == "DiamondChest" then
+                                repeat task.wait()
+                                  Goto(v.CFrame)
+                                until not v.Parent or _G.Chest == false
+                     end
+                        end
+                    else
+                        if _G.ChestHop then
+                            Hop()
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+        
    Main:AddToggleLeft("Auto Mystic Island",_G.AutoMysticIsland2,function(value)
             _G.AutoMysticIsland2 = value
             StopTween()
@@ -8037,11 +8085,21 @@ if World3 then
     
              function ssr()
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
-                    Elite_Hunter_Status:Set("Elite is : 🟢")    
+                    Elite_Hunter_Status:Set("Elite is : 🟢")  
                 else
                     Elite_Hunter_Status:Set("Elite is : 🔴")    
                 end
                 end
+
+spawn(function()
+                                if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
+                    Update:Nof("Elite : spawn")
+                    else
+                                      Update:Nof("Elite : Not spawn")
+
+        end
+            end)
+
 
          spawn(function()
         while task.wait() do
